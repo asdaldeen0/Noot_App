@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:note_app/core/constant/colors.dart';
-import 'package:note_app/model/notemodel.dart';
-import 'package:note_app/view/screen/noteviwe.dart';
+import 'package:note_app/model/note_model.dart';
+import 'package:note_app/view/screen/note_details_view.dart';
 
-class CardCustomer extends StatelessWidget {
-  final Notemodel note;
+class NoteCard extends StatelessWidget {
+  final NoteModel note;
 
-  const CardCustomer({super.key, required this.note});
+  const NoteCard({super.key, required this.note});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class CardCustomer extends StatelessWidget {
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => NoteView(note: note)),
+              MaterialPageRoute(builder: (context) => NoteDetailsView(note: note)),
             );
           },
           splashColor: AppColors.accent.withValues(alpha: 0.08),

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:note_app/core/constant/colors.dart';
-import 'package:note_app/model/notemodel.dart';
+import 'package:note_app/model/note_model.dart';
 
-class NoteView extends StatelessWidget {
-  final Notemodel note;
-  const NoteView({super.key, required this.note});
+class NoteDetailsView extends StatelessWidget {
+  final NoteModel note;
+  const NoteDetailsView({super.key, required this.note});
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,6 @@ class NoteView extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
             const SizedBox(height: 4),
-
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -80,7 +79,6 @@ class NoteView extends StatelessWidget {
             children: [
               const Divider(color: AppColors.border, thickness: 4),
               const SizedBox(height: 18),
-
               SelectableText(
                 note.containt,
                 style: TextStyle(

@@ -1,14 +1,12 @@
-
 import 'package:flutter/material.dart';
 import 'package:note_app/core/constant/colors.dart';
-import 'package:note_app/model/notemodel.dart';
-import 'package:note_app/view/widget/CardCustomer.dart';
+import 'package:note_app/model/note_model.dart';
+import 'package:note_app/view/widget/note_card.dart';
 
 class NoteSearchDelegate extends SearchDelegate {
-  final List<Notemodel> notes;
+  final List<NoteModel> notes;
 
   NoteSearchDelegate({required this.notes});
-
 
   @override
   List<Widget>? buildActions(BuildContext context) {
@@ -35,21 +33,17 @@ class NoteSearchDelegate extends SearchDelegate {
     );
   }
 
-
   @override
   Widget buildResults(BuildContext context) {
     return _buildFilteredList();
   }
-
 
   @override
   Widget buildSuggestions(BuildContext context) {
     return _buildFilteredList();
   }
 
-  
   Widget _buildFilteredList() {
-    
     final filteredNotes = notes.where((note) {
       final titleMatch = note.title.toLowerCase().contains(query.toLowerCase());
       final contentMatch = note.containt.toLowerCase().contains(
@@ -73,7 +67,7 @@ class NoteSearchDelegate extends SearchDelegate {
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.only(bottom: 10),
-          child: CardCustomer(note: filteredNotes[index]),
+          child: NoteCard(note: filteredNotes[index]),
         );
       },
     );

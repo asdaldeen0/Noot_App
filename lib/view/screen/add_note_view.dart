@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:note_app/core/constant/colors.dart';
-import 'package:note_app/core/shared/CustomTextFormField.dart';
-import 'package:note_app/core/shared/buttoms.dart';
-import 'package:note_app/model/notemodel.dart';
+import 'package:note_app/core/shared/custom_general_button.dart';
+import 'package:note_app/core/shared/custom_text_form_field.dart';
+import 'package:note_app/model/note_model.dart';
 
-class AddView extends StatefulWidget {
-  const AddView({super.key, required this.onPressed, this.note});
+class AddNoteView extends StatefulWidget {
+  const AddNoteView({super.key, required this.onPressed, this.note});
 
   final Function(String title, String containt) onPressed;
-  final Notemodel? note;
+  final NoteModel? note;
 
   @override
-  State<AddView> createState() => _AddViewState();
+  State<AddNoteView> createState() => _AddNoteViewState();
 }
 
-class _AddViewState extends State<AddView> {
+class _AddNoteViewState extends State<AddNoteView> {
   late final TextEditingController title;
   late final TextEditingController containt;
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -22,14 +22,12 @@ class _AddViewState extends State<AddView> {
   @override
   void initState() {
     super.initState();
-
     title = TextEditingController(text: widget.note?.title ?? "");
     containt = TextEditingController(text: widget.note?.containt ?? "");
   }
 
   @override
   void dispose() {
-
     title.dispose();
     containt.dispose();
     super.dispose();
@@ -42,7 +40,12 @@ class _AddViewState extends State<AddView> {
     return Form(
       key: formKey,
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        padding: EdgeInsets.only(
+          left: 16,
+          right: 16,
+          top: 16,
+          bottom: MediaQuery.of(context).viewInsets.bottom + 16,
+        ),
         decoration: const BoxDecoration(
           color: AppColors.cardBg,
           borderRadius: BorderRadius.vertical(top: Radius.circular(24)),

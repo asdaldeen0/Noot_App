@@ -6,7 +6,8 @@ class CustomTextFormField extends StatelessWidget {
     super.key,
     required this.controller,
     required this.name,
-    this.istitle = true,  this.lenthtext =false,
+    this.istitle = true,
+    this.lenthtext = false,
   });
 
   final TextEditingController controller;
@@ -17,11 +18,12 @@ class CustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      maxLength: lenthtext ? 30 : null ,
+      maxLength: lenthtext ? 30 : null,
       validator: (value) {
-        if (value!.isEmpty) {
-          return " لايمكن ترك هذا الحقل فارغاً";
+        if (value == null || value.trim().isEmpty) {
+          return "لا يمكن ترك هذا الحقل فارغاً";
         }
+        return null;
       },
       maxLines: istitle ? 1 : 10,
       controller: controller,
@@ -46,7 +48,7 @@ class CustomTextFormField extends StatelessWidget {
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14),
-          borderSide: const BorderSide(color: AppColors.error, width: 1.5),
+          borderSide: const BorderSide(color: AppColors.error),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14),

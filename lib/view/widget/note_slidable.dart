@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:note_app/core/constant/colors.dart';
-import 'package:note_app/view/widget/NoteActionSlide.dart';
+import 'package:note_app/view/widget/note_action_slide.dart';
 
-class Slaidbale extends StatelessWidget {
-  const Slaidbale({
+class NoteSlidable extends StatelessWidget {
+  const NoteSlidable({
     super.key,
     required this.child,
     required this.onEdit,
     required this.onDelete,
   });
+
   final Widget child;
   final void Function(BuildContext) onEdit;
   final void Function(BuildContext) onDelete;
@@ -17,7 +18,6 @@ class Slaidbale extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Slidable(
-     
       startActionPane: ActionPane(
         motion: const BehindMotion(),
         extentRatio: 0.28,

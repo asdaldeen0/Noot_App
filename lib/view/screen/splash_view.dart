@@ -1,15 +1,14 @@
-// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:note_app/core/constant/colors.dart';
 
-class Splashviwe extends StatefulWidget {
-  const Splashviwe({super.key});
+class SplashView extends StatefulWidget {
+  const SplashView({super.key});
 
   @override
-  State<Splashviwe> createState() => _SplashviweState();
+  State<SplashView> createState() => _SplashViewState();
 }
 
-class _SplashviweState extends State<Splashviwe> {
+class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     super.initState();
@@ -38,7 +37,6 @@ class _SplashviweState extends State<Splashviwe> {
                     color: AppColors.accent.withValues(alpha: 0.12),
                   ),
                 ),
-
                 Container(
                   width: 110,
                   height: 110,
@@ -83,8 +81,6 @@ class _SplashviweState extends State<Splashviwe> {
               ],
             ),
             const SizedBox(height: 28),
-
-            // عنوان التطبيق
             const Text(
               "ملاحظاتي",
               style: TextStyle(
@@ -95,7 +91,6 @@ class _SplashviweState extends State<Splashviwe> {
               ),
             ),
             const SizedBox(height: 6),
-
             const Text(
               "أفكارك في مكان واحد",
               style: TextStyle(
@@ -105,7 +100,6 @@ class _SplashviweState extends State<Splashviwe> {
               ),
             ),
             const SizedBox(height: 48),
-
             SizedBox(
               width: 24,
               height: 24,
